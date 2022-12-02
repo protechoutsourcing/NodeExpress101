@@ -4,10 +4,12 @@ const debug = require('debug')('app'); //ประกาศตัวแปรเ
 const morgan = require('morgan'); //ประกาศตัวแปรเรียกใช้ morgan
 const app = express(); //เรียกใช้ express
 const port = 3000; //กำหนด Port
+const path = require('path');
 
 app.use(morgan('combined')); //เรียกใช้ morgan
+app.use(express.static(path.join(__dirname,"/public/")));
 app.get("/", (req,res) => { //request/response
-    res.send('weerako'); //ตอบกลับทาง browser
+    res.send('NodeExpress101'); //ตอบกลับทาง browser
 })
 
 app.listen(port,() => { //ตอบกลับที่พอร์ท
