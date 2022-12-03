@@ -4,10 +4,10 @@ const debug = require('debug')('app'); //ประกาศตัวแปรเ
 const morgan = require('morgan'); //ประกาศตัวแปรเรียกใช้ morgan
 const app = express(); //เรียกใช้ express
 const port = 3000; //กำหนด Port
-const path = require('path');
+const path = require('path'); //ประกาศตัวแปรเรียกใช้ path
 
 app.use(morgan('combined')); //เรียกใช้ morgan
-app.use(express.static(path.join(__dirname,"/public/")));
+app.use(express.static(path.join(__dirname,"/public/"))); //เรียกใช้ path
 app.get("/", (req,res) => { //request/response
     res.send('NodeExpress101'); //ตอบกลับทาง browser
 })
