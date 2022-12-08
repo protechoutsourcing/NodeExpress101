@@ -7,11 +7,12 @@ const port = 3000; //กำหนด Port
 const path = require('path'); //ประกาศตัวแปรเรียกใช้ path
 
 app.use(morgan('combined')); //เรียกใช้ morgan
-app.use(express.static(path.join(__dirname,"/public/"))); //เรียกใช้ path
-app.get("/", (req,res) => { //request/response
-    res.send('NodeExpress101'); //ตอบกลับทาง browser
+app.use(express.static(path.join(__dirname, "/public/"))); //เรียกใช้ path
+
+app.get("/", (req, res) => { //request/response
+    res.send('NodeExpress101'); //แสดงผลที่ browser
 })
 
-app.listen(port,() => { //ตอบกลับที่พอร์ท
-    debug(chalk.yellow('Listening on port :'),chalk.greenBright(port)); //แสดง log,ใช้ chalk เปลี่ยนสีตัวหนังสือ
+app.listen(port, () => { //ตอบกลับที่พอร์ท
+    debug(chalk.yellow('Listening on port :'), chalk.greenBright(port)); //แสดง log ที่ terminal,ใช้ chalk เปลี่ยนสีตัวหนังสือ
 })
