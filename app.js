@@ -9,8 +9,12 @@ const path = require('path'); //ประกาศตัวแปรเรีย
 app.use(morgan('combined')); //เรียกใช้ morgan
 app.use(express.static(path.join(__dirname, "/public/"))); //เรียกใช้ path
 
+app.set("views","./src/views"); //views path
+app.set("view engine", "ejs"); //ใช้งาน ejs
+
 app.get("/", (req, res) => { //request/response
-    res.send('NodeExpress101'); //แสดงผลที่ browser
+    //res.send('NodeExpress1011'); //(old)แสดงผลที่ browser
+    res.render('index',{username:'zemza55+'});//ให้เว็บแสดงผลด้วย ejs
 })
 
 app.listen(port, () => { //ตอบกลับที่พอร์ท
